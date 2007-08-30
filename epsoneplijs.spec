@@ -11,8 +11,8 @@ BuildRequires:	libtool
 BuildRequires:	libusb-devel
 BuildRequires:	libieee1284-devel
 Requires:	ghostscript >= 6.53
-Conflicts:	printer-utils-2006 printer-utils-2007
-Conflicts:	printer-filters-2006 printer-filters-2007
+Conflicts:	printer-utils = 2007
+Conflicts:	printer-filters = 2007
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
