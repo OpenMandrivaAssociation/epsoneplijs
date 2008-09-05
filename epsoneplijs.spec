@@ -1,12 +1,13 @@
 Summary:	Ghostscript IJS Plugin for the Epson EPL-5700L/5800L/5900L/6100L/6200L printers
 Name:		epsoneplijs
-Version:	0.4.0
-Release:	%mkrel 8
+Version:	0.4.1
+Release:	%mkrel 1
 Group:		System/Printing
 License:	BSD
 URL:		http://sourceforge.net/projects/epsonepl/
 Source0:	http://osdn.dl.sourceforge.net/sourceforge/epsonepl/epsoneplijs-%{version}.tgz
 Patch0:		epsoneplijs-use_system_libs.diff
+Patch1:		epsoneplijs-mandriva-install.diff
 BuildRequires:	libtool
 BuildRequires:	libusb-devel
 BuildRequires:	libieee1284-devel
@@ -34,6 +35,7 @@ for i in `find . -type d -name CVS` `find . -type f -name .cvs\*` `find . -type 
 done
 
 %patch0 -p1
+%patch1 -p1
 
 %build
 %serverbuild
@@ -69,10 +71,17 @@ install -m0755 epl-5700 %{buildroot}%{_bindir}/
 install -m0755 epl-5800 %{buildroot}%{_bindir}/
 install -m0755 epl5x00l %{buildroot}%{_bindir}/
 
+pushd foomatic_scripts
+sh install_mandrake %{buildroot}
+popd
+
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root)
-%doc ChangeLog FAQ LIMITATIONS README* *.pdf epl_test* apsfilter cups foomatic epl_docs/epl-protocol.pdf epl_docs/README.1st
+%doc ChangeLog FAQ LIMITATIONS README* *.pdf epl_test* apsfilter cups epl_docs/epl-protocol.pdf epl_docs/README.1st
 %{_bindir}/*
+%{_datadir}/cups/model/epson/*.ppd.gz
+%{_datadir}/foomatic/db/source/driver/*.xml
+%{_datadir}/foomatic/db/source/opt/*.xml
