@@ -1,13 +1,14 @@
 Summary:	Ghostscript IJS Plugin for the Epson EPL-5700L/5800L/5900L/6100L/6200L printers
 Name:		epsoneplijs
 Version:	0.4.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Printing
 License:	BSD
 URL:		http://sourceforge.net/projects/epsonepl/
 Source0:	http://osdn.dl.sourceforge.net/sourceforge/epsonepl/epsoneplijs-%{version}.tgz
 Patch0:		epsoneplijs-use_system_libs.diff
 Patch1:		epsoneplijs-mandriva-install.diff
+Patch2:		epsoneplijs-0.4.1-LDFLAGS.diff
 BuildRequires:	libtool
 BuildRequires:	libusb-devel
 BuildRequires:	libieee1284-devel
@@ -34,8 +35,9 @@ for i in `find . -type d -name CVS` `find . -type f -name .cvs\*` `find . -type 
     if [ -e "$i" ]; then rm -rf $i; fi >&/dev/null
 done
 
-%patch0 -p1
-%patch1 -p1
+%patch0 -p1 -b .use_system_libs
+%patch1 -p1 -b .mandriva-install
+%patch2 -p0 -b .LDFLAGS
 
 %build
 %serverbuild
@@ -54,9 +56,9 @@ libtoolize --force --copy; aclocal; autoconf
 %make
 %make test5700lusb
 
-gcc $CFLAGS -fPIC -Wall -o epl-5700 epl_docs/epl-5700.c
-gcc $CFLAGS -fPIC -Wall -o epl-5800 epl_docs/epl-5800.c
-gcc $CFLAGS -fPIC -Wall -o epl5x00l epl_docs/epl5x00l.c
+gcc $CFLAGS -fPIC -Wall %{ldflags} -o epl-5700 epl_docs/epl-5700.c
+gcc $CFLAGS -fPIC -Wall %{ldflags} -o epl-5800 epl_docs/epl-5800.c
+gcc $CFLAGS -fPIC -Wall %{ldflags} -o epl5x00l epl_docs/epl5x00l.c
 
 %install
 rm -rf %{buildroot}
