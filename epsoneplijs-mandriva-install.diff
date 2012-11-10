@@ -1,0 +1,25 @@
+diff -p -up epsoneplijs-0.4.0/foomatic_scripts/install_mandrake.org epsoneplijs-0.4.0/foomatic_scripts/install_mandrake
+--- epsoneplijs-0.4.0/foomatic_scripts/install_mandrake.org	2008-04-23 13:05:54.000000000 -0300
++++ epsoneplijs-0.4.0/foomatic_scripts/install_mandrake	2008-04-23 13:06:24.000000000 -0300
+@@ -4,9 +4,11 @@
+ 
+ # Add the xml files to the foomatic database.
+ 
+-cp ../foomatic/driver/*  /usr/share/foomatic/db/source/driver/
+-cp ../foomatic/opt/*     /usr/share/foomatic/db/source/opt/
+-cp ../foomatic/printer/* /usr/share/foomatic/db/source/printer/
++mkdir -p $1/usr/share/foomatic/db/source/{driver,opt,printer}
++
++cp ../foomatic/driver/*  $1/usr/share/foomatic/db/source/driver/
++cp ../foomatic/opt/*     $1/usr/share/foomatic/db/source/opt/
++#cp ../foomatic/printer/* $1/usr/share/foomatic/db/source/printer/
+ 
+ ##### Generate PPDs and install them
+ 
+@@ -18,4 +20,5 @@ foomatic-datafile -t cups -d epl6200l -p
+ 
+ gzip -9f ../foomatic_PPDs/epl*.ppd
+ 
+-cp -av ../foomatic_PPDs/epl*.ppd.gz /usr/share/cups/model/epson/
++mkdir -p $1/usr/share/cups/model/epson/
++cp -av ../foomatic_PPDs/epl*.ppd.gz $1/usr/share/cups/model/epson/
