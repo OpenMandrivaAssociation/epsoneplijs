@@ -1,7 +1,7 @@
 Summary:	Ghostscript IJS Plugin for the Epson EPL-5700L/5800L/5900L/6100L/6200L printers
 Name:		epsoneplijs
 Version:	0.4.1
-Release:	%mkrel 6
+Release:	%mkrel 7
 Group:		System/Printing
 License:	BSD
 URL:		http://sourceforge.net/projects/epsonepl/
@@ -87,3 +87,73 @@ rm -rf %{buildroot}
 %{_datadir}/cups/model/epson/*.ppd.gz
 %{_datadir}/foomatic/db/source/driver/*.xml
 %{_datadir}/foomatic/db/source/opt/*.xml
+
+
+%changelog
+* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-6mdv2011.0
++ Revision: 664148
+- mass rebuild
+
+* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-5mdv2011.0
++ Revision: 605104
+- rebuild
+
+* Tue Mar 16 2010 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-4mdv2010.1
++ Revision: 521120
+- rebuilt for 2010.1
+
+* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 0.4.1-3mdv2010.0
++ Revision: 424387
+- rebuild
+
+* Mon Dec 29 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-2mdv2009.1
++ Revision: 321032
+- use %%ldflags
+
+* Fri Sep 05 2008 Tiago Salem <salem@mandriva.com.br> 0.4.1-1mdv2009.0
++ Revision: 281377
+- version 0.4.1
+- fix broken build
+- fix foomatic path
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 0.4.0-8mdv2009.0
++ Revision: 220726
+- rebuild
+
+* Wed Jan 23 2008 Thierry Vignaud <tv@mandriva.org> 0.4.0-7mdv2008.1
++ Revision: 157247
+- rebuild with fixed %%serverbuild macro
+
+* Sat Jan 12 2008 Thierry Vignaud <tv@mandriva.org> 0.4.0-6mdv2008.1
++ Revision: 149699
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Thu Aug 30 2007 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-5mdv2008.0
++ Revision: 75344
+- bump release
+- fix deps (pixel)
+
+* Wed Aug 22 2007 Thierry Vignaud <tv@mandriva.org> 0.4.0-4mdv2008.0
++ Revision: 68996
+- fix description
+
+* Thu Aug 16 2007 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-3mdv2008.0
++ Revision: 64159
+- use the new System/Printing RPM GROUP
+
+* Fri Aug 10 2007 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-2mdv2008.0
++ Revision: 61083
+- rebuild
+
+* Fri Aug 10 2007 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-1mdv2008.0
++ Revision: 60973
+- Import epsoneplijs
+
+
+
+* Thu Aug 09 2007 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-1mdv2008.0
+- initial Mandriva package
