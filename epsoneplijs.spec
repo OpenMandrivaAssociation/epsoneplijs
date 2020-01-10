@@ -23,7 +23,7 @@ It is known to work for at least one user for each of 5700L, 5800L,
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 sed -i -e "s|-g -O2 -Wall -Werror -ansi -pedantic -Wmissing-prototypes|$CFLAGS -fPIC|g" Makefile.in
 
