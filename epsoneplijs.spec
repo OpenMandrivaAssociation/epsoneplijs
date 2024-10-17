@@ -4,7 +4,7 @@ Version:	0.4.1
 Release:	21
 Group:		System/Printing
 License:	BSD
-Url:		http://sourceforge.net/projects/epsonepl/
+Url:		https://sourceforge.net/projects/epsonepl/
 Source0:	http://osdn.dl.sourceforge.net/sourceforge/epsonepl/epsoneplijs-%{version}.tgz
 Patch0:		epsoneplijs-use_system_libs.diff
 Patch1:		epsoneplijs-mandriva-install.diff
