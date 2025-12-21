@@ -10,6 +10,11 @@ Patch0:		epsoneplijs-use_system_libs.diff
 Patch1:		epsoneplijs-mandriva-install.diff
 Patch2:		epsoneplijs-0.4.1-LDFLAGS.diff
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	ieee1284-devel
 BuildRequires:	pkgconfig(libusb)
